@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjchlujd0p4a3"]
+
+[ext_resource type="Script" uid="uid://crntfroepd4ht" path="res://scripts/map/main.gd" id="1_cvwuj"]
+[ext_resource type="Script" uid="uid://3l1rryciffwi" path="res://scripts/common/map_loader.gd" id="2_f6igv"]
+[ext_resource type="PackedScene" uid="uid://clqo7dibr1orn" path="res://screen/player/player.tscn" id="2_kkqbl"]
+[ext_resource type="PackedScene" uid="uid://uunxies5lkdt" path="res://screen/background/ground_1.tscn" id="3_kkqbl"]
+[ext_resource type="PackedScene" uid="uid://lw715q6npibe" path="res://screen/background/dirt_1.tscn" id="4_f6igv"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cvwuj")
+
+[node name="MapLoader" type="Node2D" parent="."]
+script = ExtResource("2_f6igv")
+ground_1_scene = ExtResource("3_kkqbl")
+dirt_1_scene = ExtResource("4_f6igv")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(69, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_kkqbl")]

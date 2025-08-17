@@ -1,0 +1,17 @@
+{
+	"objects": [
+		{"scene": "ground_1", "x": 0, "y": 600},
+		{"scene": "ground_2", "x": 90, "y": 600},
+		{"scene": "ground_1", "x": 180, "y": 600},
+		{"scene": "ground_2", "x": 270, "y": 600},
+		{"scene": "ground_1", "x": 360, "y": 600},
+		{"scene": "ground_2", "x": 450, "y": 600},
+		{"scene": "ground_1", "x": 540, "y": 600},
+		{"scene": "ground_2", "x": 630, "y": 600},
+		{"scene": "ground_1", "x": 720, "y": 600},
+		{"scene": "ground_2", "x": 810, "y": 600},
+		{"scene": "ground_1", "x": 900, "y": 600},
+		{"scene": "ground_2", "x": 990, "y": 600},
+		{"scene": "ground_1", "x": 1080, "y": 600},
+	]
+}
