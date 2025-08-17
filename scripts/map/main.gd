@@ -4,7 +4,7 @@ extends Node
 func new_game():
 	$MapLoader.init()
 	$Player.init($StartPosition.position)
-	
+	$Player.set_weapon_mode($Player.WeaponMode.DUAL_HAND)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	new_game()
