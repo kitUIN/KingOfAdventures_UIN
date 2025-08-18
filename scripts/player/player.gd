@@ -17,6 +17,7 @@ const AttackSystemClass = preload("res://scripts/player/attack_system.gd")
 const AnimationManagerClass = preload("res://scripts/player/animation_manager.gd")
 const EquipmentManagerClass = preload("res://scripts/player/equipment_manager.gd")
 const MovementControllerClass = preload("res://scripts/player/movement_controller.gd")
+const AttackEffectManagerClass = preload("res://scripts/player/attack_effect_manager.gd")
 
 # 职业和技能系统类
 const PlayerClassClass = preload("res://scripts/player/class_skill_system/player_class.gd")
@@ -61,6 +62,7 @@ var attack_system: AttackSystemClass
 var animation_manager: AnimationManagerClass
 var equipment_manager: EquipmentManagerClass
 var movement_controller: MovementControllerClass
+var attack_effect_manager: AttackEffectManagerClass
 
 # 新的职业和技能系统
 var player_class: PlayerClassClass
@@ -125,6 +127,11 @@ func initialize_systems() -> void:
 	attack_system.attack_started.connect(_on_attack_started)
 	attack_system.attack_finished.connect(_on_attack_finished)
 	
+	# 创建攻击特效管理器
+	attack_effect_manager = AttackEffectManagerClass.new(self)
+	attack_effect_manager.effect_started.connect(_on_attack_effect_started)
+	attack_effect_manager.effect_finished.connect(_on_attack_effect_finished)
+	
 	# 创建被动技能管理器
 	passive_skill_manager = PassiveSkillManagerClass.new(skill_system, movement_controller, self)
 	
@@ -165,10 +172,20 @@ func setup_animation_references() -> void:
 # 攻击开始回调
 func _on_attack_started(attack_type: int) -> void:
 	animation_manager.play_attack_animation(attack_type)
+	# 播放攻击特效
+	attack_effect_manager.play_attack_effect(attack_type)
 
 # 攻击结束回调
 func _on_attack_finished() -> void:
 	pass  # 可以在这里添加攻击结束后的逻辑
+
+# 攻击特效开始回调
+func _on_attack_effect_started(attack_type: int) -> void:
+	print("攻击特效开始: 攻击类型 " + str(attack_type))
+
+# 攻击特效结束回调
+func _on_attack_effect_finished(attack_type: int) -> void:
+	print("攻击特效结束: 攻击类型 " + str(attack_type))
 
 # 装备加载完成回调
 func _on_equipment_loaded(equipment_type: String, equipment_name: String) -> void:
@@ -280,3 +297,32 @@ func force_activate_skill(skill_id: int, skill_type: SkillSystemClass.SkillType)
 	if skill_system:
 		return skill_system.activate_skill(skill_id, skill_type)
 	return false
+
+# === 攻击特效系统接口 ===
+
+# 手动播放攻击特效
+func play_attack_effect(attack_type: int) -> void:
+	if attack_effect_manager:
+		attack_effect_manager.play_attack_effect(attack_type)
+
+# 停止特定攻击特效
+func stop_attack_effect(attack_type: int) -> void:
+	if attack_effect_manager:
+		attack_effect_manager.stop_attack_effect(attack_type)
+
+# 停止所有攻击特效
+func stop_all_attack_effects() -> void:
+	if attack_effect_manager:
+		attack_effect_manager.stop_all_effects()
+
+# 检查特效是否正在播放
+func is_attack_effect_playing(attack_type: int) -> bool:
+	if attack_effect_manager:
+		return attack_effect_manager.is_effect_playing(attack_type)
+	return false
+
+# 获取当前播放的特效数量
+func get_active_effects_count() -> int:
+	if attack_effect_manager:
+		return attack_effect_manager.get_active_effects_count()
+	return 0

@@ -321,5 +321,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ebuzq")
-position = Vector2(25, -48)
+position = Vector2(0, -48)
 animation = &"default_s"

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx8jv5y4t2bwf"]
+
+[ext_resource type="Texture2D" uid="uid://cp3sqil384v3e" path="res://assets/player/attack/attack_1/1704.png" id="1_bvwk5"]
+[ext_resource type="Texture2D" uid="uid://ddj63hfiqmqug" path="res://assets/player/attack/attack_1/1706.png" id="2_3vxno"]
+[ext_resource type="Texture2D" uid="uid://xqogvu7ysk6u" path="res://assets/player/attack/attack_1/1708.png" id="3_8nx1c"]
+[ext_resource type="Texture2D" uid="uid://b5mjuqg6xmfhx" path="res://assets/player/attack/attack_1/1710.png" id="4_h7kqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bvwk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3vxno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8nx1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h7kqd")
+}],
+"loop": false,
+"name": &"attack_1",
+"speed": 10.0
+}]
+
+[node name="Attack1Effect" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-70, 9)
+sprite_frames = SubResource("SpriteFrames_1")
+animation = &"attack_1"
+autoplay = "attack_1"
+offset = Vector2(30, -40)

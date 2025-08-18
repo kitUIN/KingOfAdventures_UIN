@@ -21,5 +21,3 @@ position = Vector2(69, 1)
 [node name="Player" parent="." instance=ExtResource("2_kkqbl")]
 
 [node name="DebugConsole" parent="." instance=ExtResource("5_debug")]
-grow_horizontal = 2
-grow_vertical = 2
