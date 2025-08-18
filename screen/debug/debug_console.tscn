@@ -1,0 +1,464 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2ckxrqhxvdx8"]
+
+[ext_resource type="Script" path="res://scripts/debug/debug_console.gd" id="1_8q0x5"]
+
+[node name="DebugConsole" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8q0x5")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 500.0
+color = Color(0, 0, 0, 0.3)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "调试控制台"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WeaponModeGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponModeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponModeGroup"]
+layout_mode = 2
+text = "武器模式"
+
+[node name="WeaponModeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponModeGroup"]
+layout_mode = 2
+
+[node name="SingleHandBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponModeGroup/WeaponModeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "单手模式"
+
+[node name="DualHandBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponModeGroup/WeaponModeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "双手模式"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GenderGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GenderLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/GenderGroup"]
+layout_mode = 2
+text = "性别"
+
+[node name="GenderContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/GenderGroup"]
+layout_mode = 2
+
+[node name="FemaleBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/GenderGroup/GenderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "女性"
+
+[node name="MaleBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/GenderGroup/GenderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "男性"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HairGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HairLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup"]
+layout_mode = 2
+text = "头发样式"
+
+[node name="HairContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup"]
+layout_mode = 2
+
+[node name="Hair1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup/HairContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "样式1"
+
+[node name="Hair2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup/HairContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "样式2"
+
+[node name="Hair3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup/HairContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "样式3"
+
+[node name="Hair4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HairGroup/HairContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "样式4"
+
+[node name="HSeparator4" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EyeGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EyeLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup"]
+layout_mode = 2
+text = "眼睛样式"
+
+[node name="EyeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup"]
+layout_mode = 2
+
+[node name="Eye1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup/EyeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "眼睛1"
+
+[node name="Eye2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup/EyeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "眼睛2"
+
+[node name="Eye3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup/EyeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "眼睛3"
+
+[node name="Eye4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup/EyeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "眼睛4"
+
+[node name="Eye5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/EyeGroup/EyeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "眼睛5"
+
+[node name="HSeparator7" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HatGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HatLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup"]
+layout_mode = 2
+text = "帽子选择"
+
+[node name="HatTypeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup"]
+layout_mode = 2
+
+[node name="HelmetBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "头盔"
+
+[node name="WizardHatBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "法师帽"
+
+[node name="HatVariantContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup"]
+layout_mode = 2
+columns = 4
+
+[node name="Hat1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体1"
+
+[node name="Hat2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体2"
+
+[node name="Hat3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体3"
+
+[node name="Hat4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体4"
+
+[node name="Hat5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体5"
+
+[node name="Hat6Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/HatGroup/HatVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体6"
+
+[node name="HSeparator8" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ClothingGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ClothingLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup"]
+layout_mode = 2
+text = "衣服选择"
+
+[node name="ClothingTypeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup"]
+layout_mode = 2
+
+[node name="ArmorBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盔甲"
+
+[node name="RobeBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "法袍"
+
+[node name="ClothingVariantContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup"]
+layout_mode = 2
+columns = 4
+
+[node name="Clothing1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体1"
+
+[node name="Clothing2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体2"
+
+[node name="Clothing3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体3"
+
+[node name="Clothing4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体4"
+
+[node name="Clothing5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体5"
+
+[node name="Clothing6Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/ClothingGroup/ClothingVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体6"
+
+[node name="HSeparator5" type="HSeparator" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup"]
+layout_mode = 2
+text = "武器选择"
+
+[node name="LeftWeaponGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup"]
+layout_mode = 2
+
+[node name="LeftWeaponLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup"]
+layout_mode = 2
+text = "左手武器 (盾牌)"
+
+[node name="LeftWeaponContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup"]
+layout_mode = 2
+columns = 4
+
+[node name="Buckler1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌1"
+
+[node name="Buckler2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌2"
+
+[node name="Buckler3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌3"
+
+[node name="Buckler4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌4"
+
+[node name="Buckler5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌5"
+
+[node name="Buckler6Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/LeftWeaponGroup/LeftWeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "盾牌6"
+
+[node name="RightWeaponGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup"]
+layout_mode = 2
+
+[node name="RightWeaponLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup"]
+layout_mode = 2
+text = "右手武器"
+
+[node name="RightWeaponTypeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup"]
+layout_mode = 2
+
+[node name="RodBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "法杖"
+
+[node name="ShortSwordBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "短剑"
+
+[node name="RightWeaponVariantContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup"]
+layout_mode = 2
+columns = 4
+
+[node name="RightVar1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体1"
+
+[node name="RightVar2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体2"
+
+[node name="RightVar3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体3"
+
+[node name="RightVar4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体4"
+
+[node name="RightVar5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体5"
+
+[node name="RightVar6Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/RightWeaponGroup/RightWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体6"
+
+[node name="DualWeaponGroup" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup"]
+layout_mode = 2
+
+[node name="DualWeaponLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup"]
+layout_mode = 2
+text = "双手武器"
+
+[node name="DualWeaponTypeContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup"]
+layout_mode = 2
+
+[node name="StaffBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "长杖"
+
+[node name="GreatswordBtn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponTypeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "大剑"
+
+[node name="DualWeaponVariantContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup"]
+layout_mode = 2
+columns = 4
+
+[node name="DualVar1Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体1"
+
+[node name="DualVar2Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体2"
+
+[node name="DualVar3Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体3"
+
+[node name="DualVar4Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体4"
+
+[node name="DualVar5Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体5"
+
+[node name="DualVar6Btn" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/WeaponGroup/DualWeaponGroup/DualWeaponVariantContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "变体6"
+
+[node name="HSeparator6" type="HSeparator" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseBtn" type="Button" parent="Panel/VBoxContainer/CloseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "关闭"
