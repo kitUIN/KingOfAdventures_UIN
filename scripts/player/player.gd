@@ -6,6 +6,12 @@ enum WeaponMode {
 	DUAL_HAND     # 双手武器模式
 }
 
+# 性别枚举
+enum Gender {
+	FEMALE,  # 女性
+	MALE     # 男性
+}
+
 # 引用管理器类
 const AttackSystemClass = preload("res://scripts/player/attack_system.gd")
 const AnimationManagerClass = preload("res://scripts/player/animation_manager.gd")
@@ -16,16 +22,20 @@ const MovementControllerClass = preload("res://scripts/player/movement_controlle
 @export var gravity: float = 1200.0
 @export var jump_force: float = -500.0
 @export var speed: float = 100.0
-@export var hair_type: String = "f_hear_1" # 头发类型设置
+@export var gender: Gender = Gender.FEMALE # 性别设置
+@export var hair_style: int = 1 # 头发样式（1-4）
 @export var eye_type: String = "eye_1" # 眼睛类型设置
 @export var hat_type: String = "helmet_1" # 帽子类型设置
 @export var clothing_type: String = "armor_1" # 衣服类型设置
 
+# 根据性别和样式自动生成的头发类型（内部使用）
+var hair_type: String
+
 # 武器设置
 @export var weapon_mode: WeaponMode = WeaponMode.SINGLE_HAND
-@export var left_hand_weapon: String = "buckler_1" # 左手武器（盾牌）
-@export var right_hand_weapon: String = "short_sword_1" # 右手武器（短剑）
-@export var dual_hand_weapon: String = "greatsword_1" # 双手武器（大剑）
+@export var left_hand_weapon: String = "buckler_1" # 左手武器
+@export var right_hand_weapon: String = "short_sword_1" # 右手武器
+@export var dual_hand_weapon: String = "greatsword_1" # 双手武器
 
 # 节点引用
 @onready var body_node = $Body
@@ -63,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func _ready() -> void:
 	hide()
+	update_hair_type() # 根据性别和样式更新头发类型
 	initialize_systems()
 	
 func init(start_pos: Vector2) -> void:
@@ -128,7 +139,25 @@ func _on_equipment_loaded(equipment_type: String, equipment_name: String) -> voi
 func _on_equipment_mode_changed(mode: int) -> void:
 	animation_manager.set_weapon_mode(mode)
 
+# 根据性别和样式更新头发类型
+func update_hair_type() -> void:
+	var gender_prefix = "f" if gender == Gender.FEMALE else "m"
+	hair_type = gender_prefix + "_hear_" + str(hair_style)
+
 # 公共接口方法（为外部调用提供接口）
+func set_gender(new_gender: Gender) -> void:
+	gender = new_gender
+	update_hair_type()
+	if equipment_manager:
+		equipment_manager.set_hair_type(hair_type)
+
+func set_hair_style(new_style: int) -> void:
+	# 限制样式范围在1-4之间
+	hair_style = clamp(new_style, 1, 4)
+	update_hair_type()
+	if equipment_manager:
+		equipment_manager.set_hair_type(hair_type)
+
 func set_hair_type(new_hair_type: String) -> void:
 	hair_type = new_hair_type
 	if equipment_manager:

@@ -69,7 +69,14 @@ func load_hair_scene() -> void:
 		hair_anim = null
 	
 	# 构建头发场景路径
-	var hair_path = "res://screen/player/f_hear/" + hair_type + ".tscn"
+	var hair_path = ""
+	if hair_type.begins_with("f_"):
+		hair_path = "res://screen/player/hear/f/" + hair_type + ".tscn"
+	elif hair_type.begins_with("m_"):
+		hair_path = "res://screen/player/hear/m/" + hair_type + ".tscn"
+	else:
+		# 兼容旧的命名方式，默认女性
+		hair_path = "res://screen/player/hear/f/" + hair_type + ".tscn"
 	
 	var scene = load_scene(hair_path, "头发")
 	if scene != null:
