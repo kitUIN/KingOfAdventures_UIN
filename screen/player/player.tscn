@@ -9,6 +9,8 @@ size = Vector2(42, 80)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hvlx3")
 
+[node name="LeftHand" type="Node2D" parent="."]
+
 [node name="Body" parent="." instance=ExtResource("2_sldlo")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,12 +21,10 @@ shape = SubResource("RectangleShape2D_p7f0j")
 
 [node name="Eye" type="Node2D" parent="."]
 
-[node name="LeftHand" type="Node2D" parent="."]
+[node name="Clothing" type="Node2D" parent="."]
+
+[node name="Hat" type="Node2D" parent="."]
 
 [node name="RightHand" type="Node2D" parent="."]
 
 [node name="Hand" type="Node2D" parent="."]
-
-[node name="Hat" type="Node2D" parent="."]
-
-[node name="Clothing" type="Node2D" parent="."]

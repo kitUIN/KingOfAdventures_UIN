@@ -7,6 +7,8 @@ extends RefCounted
 var body_anim: AnimatedSprite2D
 var hair_anim: AnimatedSprite2D
 var eye_anim: AnimatedSprite2D
+var hat_anim: AnimatedSprite2D
+var clothing_anim: AnimatedSprite2D
 var left_weapon_anim: AnimatedSprite2D
 var right_weapon_anim: AnimatedSprite2D
 var dual_weapon_anim: AnimatedSprite2D
@@ -23,6 +25,12 @@ func set_hair_animation(anim: AnimatedSprite2D) -> void:
 
 func set_eye_animation(anim: AnimatedSprite2D) -> void:
 	eye_anim = anim
+
+func set_hat_animation(anim: AnimatedSprite2D) -> void:
+	hat_anim = anim
+
+func set_clothing_animation(anim: AnimatedSprite2D) -> void:
+	clothing_anim = anim
 
 func set_weapon_animations(left: AnimatedSprite2D, right: AnimatedSprite2D, dual: AnimatedSprite2D) -> void:
 	left_weapon_anim = left
@@ -42,13 +50,17 @@ func set_animation(animation_name: String, should_play: bool = true) -> void:
 	# 同步所有附件动画
 	sync_all_animations()
 
-# 统一设置翻转（包括身体、头发、眼睛和武器）
+# 统一设置翻转（包括身体、头发、眼睛、帽子和衣服和武器）
 func set_flip(should_flip: bool) -> void:
 	body_anim.flip_h = should_flip
 	if hair_anim != null:
 		hair_anim.flip_h = should_flip
 	if eye_anim != null:
 		eye_anim.flip_h = should_flip
+	if hat_anim != null:
+		hat_anim.flip_h = should_flip
+	if clothing_anim != null:
+		clothing_anim.flip_h = should_flip
 	sync_weapon_flip(should_flip)
 
 # 播放攻击动画
@@ -77,10 +89,12 @@ func play_movement_animation(is_on_floor: bool, input_dir: float) -> void:
 	
 	set_animation(animation)
 
-# 同步所有附件动画（头发、眼睛和武器）
+# 同步所有附件动画（头发、眼睛、帽子、衣服和武器）
 func sync_all_animations() -> void:
 	sync_hair_animation()
 	sync_eye_animation()
+	sync_hat_animation()
+	sync_clothing_animation()
 	sync_weapon_animations()
 
 # 同步头发动画
@@ -112,6 +126,35 @@ func sync_eye_animation() -> void:
 		eye_anim.play()
 	else:
 		eye_anim.stop()
+# 同步帽子动画
+func sync_hat_animation() -> void:
+	if hat_anim == null:
+		return
+	
+	# 同步动画
+	hat_anim.animation = body_anim.animation
+	hat_anim.flip_h = body_anim.flip_h
+	
+	# 如果身体动画正在播放，让帽子也播放
+	if body_anim.is_playing():
+		hat_anim.play()
+	else:
+		hat_anim.stop()
+
+# 同步衣服动画
+func sync_clothing_animation() -> void:
+	if clothing_anim == null:
+		return
+	
+	# 同步动画
+	clothing_anim.animation = body_anim.animation
+	clothing_anim.flip_h = body_anim.flip_h
+	
+	# 如果身体动画正在播放，让衣服也播放
+	if body_anim.is_playing():
+		clothing_anim.play()
+	else:
+		clothing_anim.stop()
 
 # 同步所有武器动画
 func sync_weapon_animations() -> void:

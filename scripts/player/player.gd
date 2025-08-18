@@ -18,6 +18,8 @@ const MovementControllerClass = preload("res://scripts/player/movement_controlle
 @export var speed: float = 100.0
 @export var hair_type: String = "f_hear_1" # 头发类型设置
 @export var eye_type: String = "eye_1" # 眼睛类型设置
+@export var hat_type: String = "helmet_1" # 帽子类型设置
+@export var clothing_type: String = "armor_1" # 衣服类型设置
 
 # 武器设置
 @export var weapon_mode: WeaponMode = WeaponMode.SINGLE_HAND
@@ -29,6 +31,8 @@ const MovementControllerClass = preload("res://scripts/player/movement_controlle
 @onready var body_node = $Body
 @onready var hear_node = $Hear
 @onready var eye_node = $Eye
+@onready var hat_node = $Hat
+@onready var clothing_node = $Clothing
 @onready var left_hand_node = $LeftHand
 @onready var right_hand_node = $RightHand
 @onready var dual_hand_node = $Hand
@@ -79,9 +83,11 @@ func initialize_systems() -> void:
 	animation_manager = AnimationManagerClass.new(body_node.get_node("AnimatedSprite2D"), weapon_mode)
 	
 	# 创建装备管理器
-	equipment_manager = EquipmentManagerClass.new(hear_node, eye_node, left_hand_node, right_hand_node, dual_hand_node)
+	equipment_manager = EquipmentManagerClass.new(hear_node, eye_node, hat_node, clothing_node, left_hand_node, right_hand_node, dual_hand_node)
 	equipment_manager.hair_type = hair_type
 	equipment_manager.eye_type = eye_type
+	equipment_manager.hat_type = hat_type
+	equipment_manager.clothing_type = clothing_type
 	equipment_manager.left_hand_weapon = left_hand_weapon
 	equipment_manager.right_hand_weapon = right_hand_weapon
 	equipment_manager.dual_hand_weapon = dual_hand_weapon
@@ -99,6 +105,8 @@ func initialize_systems() -> void:
 func setup_animation_references() -> void:
 	animation_manager.set_hair_animation(equipment_manager.get_hair_animation())
 	animation_manager.set_eye_animation(equipment_manager.get_eye_animation())
+	animation_manager.set_hat_animation(equipment_manager.get_hat_animation())
+	animation_manager.set_clothing_animation(equipment_manager.get_clothing_animation())
 	var weapon_anims = equipment_manager.get_weapon_animations()
 	animation_manager.set_weapon_animations(weapon_anims[0], weapon_anims[1], weapon_anims[2])
 
@@ -130,6 +138,16 @@ func set_eye_type(new_eye_type: String) -> void:
 	eye_type = new_eye_type
 	if equipment_manager:
 		equipment_manager.set_eye_type(new_eye_type)
+
+func set_hat_type(new_hat_type: String) -> void:
+	hat_type = new_hat_type
+	if equipment_manager:
+		equipment_manager.set_hat_type(new_hat_type)
+
+func set_clothing_type(new_clothing_type: String) -> void:
+	clothing_type = new_clothing_type
+	if equipment_manager:
+		equipment_manager.set_clothing_type(new_clothing_type)
 
 func set_weapon_mode(new_mode: WeaponMode) -> void:
 	weapon_mode = new_mode
