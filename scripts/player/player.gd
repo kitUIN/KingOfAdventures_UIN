@@ -16,17 +16,17 @@ const MovementControllerClass = preload("res://scripts/player/movement_controlle
 @export var gravity: float = 1200.0
 @export var jump_force: float = -500.0
 @export var speed: float = 100.0
-@export var hair_type: String = "hear_1" # 头发类型设置
+@export var hair_type: String = "f_hear_1" # 头发类型设置
 @export var eye_type: String = "eye_1" # 眼睛类型设置
 
 # 武器设置
 @export var weapon_mode: WeaponMode = WeaponMode.SINGLE_HAND
 @export var left_hand_weapon: String = "buckler_1" # 左手武器（盾牌）
-@export var right_hand_weapon: String = "short_sword1" # 右手武器（短剑）
+@export var right_hand_weapon: String = "short_sword_1" # 右手武器（短剑）
 @export var dual_hand_weapon: String = "greatsword_1" # 双手武器（大剑）
 
 # 节点引用
-@onready var anim = $Body
+@onready var body_node = $Body
 @onready var hear_node = $Hear
 @onready var eye_node = $Eye
 @onready var left_hand_node = $LeftHand
@@ -76,7 +76,7 @@ func initialize_systems() -> void:
 	attack_system.attack_finished.connect(_on_attack_finished)
 	
 	# 创建动画管理器
-	animation_manager = AnimationManagerClass.new(anim, weapon_mode)
+	animation_manager = AnimationManagerClass.new(body_node.get_node("AnimatedSprite2D"), weapon_mode)
 	
 	# 创建装备管理器
 	equipment_manager = EquipmentManagerClass.new(hear_node, eye_node, left_hand_node, right_hand_node, dual_hand_node)

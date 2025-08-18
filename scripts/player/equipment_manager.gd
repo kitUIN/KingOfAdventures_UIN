@@ -8,10 +8,10 @@ signal equipment_loaded(equipment_type: String, equipment_name: String)
 signal equipment_mode_changed(mode: int)
 
 # 装备配置
-var hair_type: String = "hear_1"
+var hair_type: String = "f_hear_1"
 var eye_type: String = "eye_1"
 var left_hand_weapon: String = "buckler_1"
-var right_hand_weapon: String = "short_sword1"
+var right_hand_weapon: String = "short_sword_1"
 var dual_hand_weapon: String = "greatsword_1"
 var weapon_mode: int = 0  # SINGLE_HAND = 0
 
@@ -57,7 +57,7 @@ func load_hair_scene() -> void:
 		hair_anim = null
 	
 	# 构建头发场景路径
-	var hair_path = "res://screen/player/hear/" + hair_type + ".tscn"
+	var hair_path = "res://screen/player/f_hear/" + hair_type + ".tscn"
 	
 	var scene = load_scene(hair_path, "头发")
 	if scene != null:
@@ -180,11 +180,11 @@ func cleanup_weapon(weapon_scene: Node2D) -> void:
 # 根据武器名称获取文件夹名称
 func get_weapon_folder(weapon_name: String) -> String:
 	if weapon_name.begins_with("buckler"):
-		return "buckler"
+		return "left_hand/buckler"
 	elif weapon_name.begins_with("short_sword"):
-		return "short_sword"
+		return "right_hand/short_sword" 
 	elif weapon_name.begins_with("greatsword"):
-		return "greatsword"
+		return "double_hand/greatsword"
 	else:
 		print("警告：未知的武器类型: " + weapon_name)
 		return "unknown"
