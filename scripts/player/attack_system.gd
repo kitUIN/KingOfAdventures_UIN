@@ -15,6 +15,9 @@ var attack_combo_window: float = 0.25  # 连击时间窗口（秒）
 
 var player_ref: CharacterBody2D
 
+# 伤害倍数
+var damage_multipliers: Array[float] = []
+
 func _init(player: CharacterBody2D):
 	player_ref = player
 
@@ -67,3 +70,24 @@ func _on_attack_finished() -> void:
 # 检查是否可以移动（攻击时限制移动）
 func can_move() -> bool:
 	return not is_attacking
+
+# 添加伤害倍数
+func add_damage_multiplier(multiplier: float) -> void:
+	damage_multipliers.append(multiplier)
+
+# 移除伤害倍数
+func remove_damage_multiplier(multiplier: float) -> void:
+	var index = damage_multipliers.find(multiplier)
+	if index != -1:
+		damage_multipliers.remove_at(index)
+
+# 获取总伤害倍数
+func get_total_damage_multiplier() -> float:
+	var total = 1.0
+	for multiplier in damage_multipliers:
+		total *= multiplier
+	return total
+
+# 清除所有伤害倍数
+func clear_damage_multipliers() -> void:
+	damage_multipliers.clear()

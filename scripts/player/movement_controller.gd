@@ -8,6 +8,9 @@ var speed: float = 100.0
 
 var player_ref: CharacterBody2D
 
+# 技能相关速度倍数
+var speed_multipliers: Array[float] = []
+
 func _init(player: CharacterBody2D, gravity_val: float, jump_val: float, speed_val: float):
 	player_ref = player
 	gravity = gravity_val
@@ -15,13 +18,18 @@ func _init(player: CharacterBody2D, gravity_val: float, jump_val: float, speed_v
 	speed = speed_val
 
 # 处理移动物理
-func handle_movement(delta: float, can_move: bool) -> float:
+func handle_movement(delta: float, can_move: bool, speed_multiplier: float = 1.0) -> float:
 	# 获取输入方向
 	var input_dir = Input.get_axis("ui_left", "ui_right")
 	
+	# 计算最终速度（应用所有倍数）
+	var final_speed = speed * speed_multiplier
+	for multiplier in speed_multipliers:
+		final_speed *= multiplier
+	
 	# 水平移动（如果允许移动）
 	if can_move:
-		player_ref.velocity.x = input_dir * speed
+		player_ref.velocity.x = input_dir * final_speed
 	else:
 		player_ref.velocity.x = 0  # 攻击时停止水平移动
 	
@@ -29,7 +37,7 @@ func handle_movement(delta: float, can_move: bool) -> float:
 	if not player_ref.is_on_floor():
 		player_ref.velocity.y += gravity * delta
 	else:
-		# 跳跃处理
+		# 跳跃处理（只在地面时处理普通跳跃）
 		if Input.is_action_just_pressed("ui_jump") and can_move:
 			player_ref.velocity.y = jump_force
 	
@@ -45,6 +53,20 @@ func should_jump() -> bool:
 # 获取输入方向
 func get_input_direction() -> float:
 	return Input.get_axis("ui_left", "ui_right")
+
+# 添加速度倍数
+func add_speed_multiplier(multiplier: float) -> void:
+	speed_multipliers.append(multiplier)
+
+# 移除速度倍数
+func remove_speed_multiplier(multiplier: float) -> void:
+	var index = speed_multipliers.find(multiplier)
+	if index != -1:
+		speed_multipliers.remove_at(index)
+
+# 清除所有速度倍数
+func clear_speed_multipliers() -> void:
+	speed_multipliers.clear()
 
 # 设置移动参数
 func set_gravity(new_gravity: float) -> void:

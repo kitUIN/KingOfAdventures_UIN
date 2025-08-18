@@ -18,6 +18,12 @@ const AnimationManagerClass = preload("res://scripts/player/animation_manager.gd
 const EquipmentManagerClass = preload("res://scripts/player/equipment_manager.gd")
 const MovementControllerClass = preload("res://scripts/player/movement_controller.gd")
 
+# 职业和技能系统类
+const PlayerClassClass = preload("res://scripts/player/class_skill_system/player_class.gd")
+const SkillSystemClass = preload("res://scripts/player/class_skill_system/skill_system.gd")
+const PassiveSkillManagerClass = preload("res://scripts/player/class_skill_system/passive_skill_manager.gd")
+const ActiveSkillManagerClass = preload("res://scripts/player/class_skill_system/active_skill_manager.gd")
+
 # 导出参数
 @export var gravity: float = 1200.0
 @export var jump_force: float = -500.0
@@ -27,6 +33,9 @@ const MovementControllerClass = preload("res://scripts/player/movement_controlle
 @export var eye_type: String = "eye_1" # 眼睛类型设置
 @export var hat_type: String = "helmet_1" # 帽子类型设置
 @export var clothing_type: String = "armor_1" # 衣服类型设置
+
+# 职业设置
+@export var player_class_type: PlayerClassClass.ClassType = PlayerClassClass.ClassType.WARRIOR
 
 # 根据性别和样式自动生成的头发类型（内部使用）
 var hair_type: String
@@ -53,14 +62,34 @@ var animation_manager: AnimationManagerClass
 var equipment_manager: EquipmentManagerClass
 var movement_controller: MovementControllerClass
 
+# 新的职业和技能系统
+var player_class: PlayerClassClass
+var skill_system: SkillSystemClass
+var passive_skill_manager: PassiveSkillManagerClass
+var active_skill_manager: ActiveSkillManagerClass
+
 
 func _physics_process(delta: float) -> void:
+	# 更新技能系统
+	skill_system.update_cooldowns(delta)
+	skill_system.update_skill_effects(delta)
+	
+	# 更新被动技能
+	var input_dir = Input.get_axis("ui_left", "ui_right")
+	passive_skill_manager.update_passive_skills(delta, input_dir)
+	
 	# 处理攻击系统
 	attack_system.handle_timers(delta)
 	attack_system.handle_input()
 	
-	# 处理移动（攻击时限制移动）
-	var input_dir = movement_controller.handle_movement(delta, attack_system.can_move())
+	# 处理主动技能输入
+	active_skill_manager.handle_input()
+	
+	# 计算速度倍数（被动技能和主动技能）
+	var speed_multiplier = passive_skill_manager.get_speed_multiplier() * active_skill_manager.get_speed_multiplier()
+	
+	# 处理移动（攻击时限制移动，应用技能速度加成）
+	input_dir = movement_controller.handle_movement(delta, attack_system.can_move(), speed_multiplier)
 	
 	# 动画控制
 	if not attack_system.is_attacking:
@@ -82,6 +111,12 @@ func init(start_pos: Vector2) -> void:
 
 # 初始化所有管理器系统
 func initialize_systems() -> void:
+	# 创建职业系统
+	player_class = PlayerClassClass.new(player_class_type)
+	
+	# 创建技能系统
+	skill_system = SkillSystemClass.new()
+	
 	# 创建移动控制器
 	movement_controller = MovementControllerClass.new(self, gravity, jump_force, speed)
 	
@@ -89,6 +124,12 @@ func initialize_systems() -> void:
 	attack_system = AttackSystemClass.new(self)
 	attack_system.attack_started.connect(_on_attack_started)
 	attack_system.attack_finished.connect(_on_attack_finished)
+	
+	# 创建被动技能管理器
+	passive_skill_manager = PassiveSkillManagerClass.new(skill_system, movement_controller, self)
+	
+	# 创建主动技能管理器
+	active_skill_manager = ActiveSkillManagerClass.new(skill_system, self, player_class)
 	
 	# 创建动画管理器
 	animation_manager = AnimationManagerClass.new(body_node.get_node("AnimatedSprite2D"), weapon_mode)
@@ -198,3 +239,44 @@ func set_dual_weapon(weapon_name: String) -> void:
 	dual_hand_weapon = weapon_name
 	if equipment_manager:
 		equipment_manager.set_dual_weapon(weapon_name)
+
+# === 新的职业和技能系统接口 ===
+
+# 设置职业
+func set_player_class(new_class_type: PlayerClassClass.ClassType) -> void:
+	player_class_type = new_class_type
+	if player_class:
+		player_class.change_class(new_class_type)
+
+# 获取当前职业
+func get_player_class() -> PlayerClassClass:
+	return player_class
+
+# 获取技能系统
+func get_skill_system() -> SkillSystemClass:
+	return skill_system
+
+# 获取被动技能管理器
+func get_passive_skill_manager() -> PassiveSkillManagerClass:
+	return passive_skill_manager
+
+# 获取主动技能管理器
+func get_active_skill_manager() -> ActiveSkillManagerClass:
+	return active_skill_manager
+
+# 启用/禁用被动技能
+func set_passive_skill(skill_id: SkillSystemClass.PassiveSkill, enabled: bool) -> void:
+	if skill_system:
+		skill_system.set_passive_skill(skill_id, enabled)
+
+# 检查是否可以使用技能
+func can_use_skill(skill_id: int, skill_type: SkillSystemClass.SkillType) -> bool:
+	if skill_system:
+		return skill_system.is_skill_available(skill_id, skill_type)
+	return false
+
+# 强制激活技能（用于调试或特殊情况）
+func force_activate_skill(skill_id: int, skill_type: SkillSystemClass.SkillType) -> bool:
+	if skill_system:
+		return skill_system.activate_skill(skill_id, skill_type)
+	return false
