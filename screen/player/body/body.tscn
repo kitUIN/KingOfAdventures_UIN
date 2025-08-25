@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dda853a4862b4"]
+[gd_scene load_steps=47 format=3 uid="uid://dugp8d0j0jnd"]
 
 [ext_resource type="Texture2D" uid="uid://bup1uoljc3b8b" path="res://assets/player/body/2448.png" id="1_s0v6t"]
 
@@ -189,7 +189,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_1_d",
-"speed": 4.0
+"speed": 3.4
 }, {
 "frames": [{
 "duration": 1.0,
@@ -214,7 +214,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_2_d",
-"speed": 3.2
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -228,7 +228,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_2_s",
-"speed": 4.8
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -242,7 +242,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3_d",
-"speed": 3.2
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -256,7 +256,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3_s",
-"speed": 4.8
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -452,4 +452,3 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6y00u")
 animation = &"walk_s"
-frame_progress = 0.270793

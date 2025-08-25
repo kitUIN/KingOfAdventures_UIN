@@ -23,4 +23,6 @@ position = Vector2(-81, 14)
 sprite_frames = SubResource("SpriteFrames_1")
 animation = &"attack_2"
 autoplay = "attack_2"
+frame = 1
+frame_progress = 1.0
 offset = Vector2(30, -40)

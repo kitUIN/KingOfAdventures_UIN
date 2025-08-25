@@ -1,7 +1,7 @@
 
-[gd_scene load_steps=47 format=3 uid="uid://2f57362e3baa4"]
+[gd_scene load_steps=47 format=3 uid="uid://be049dbd5ca34"]
 
-[ext_resource type="Texture2D" uid="uid://8f7d72a820cb4" path="res://assets/equipment/right_hand/2213.png" id="1_s0v6t"]
+[ext_resource type="Texture2D" uid="uid://d7c6dd99a4064" path="res://assets/equipment/right_hand/2213.png" id="1_s0v6t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mniu"]
 atlas = ExtResource("1_s0v6t")
@@ -190,7 +190,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_1_d",
-"speed": 4.0
+"speed": 3.4
 }, {
 "frames": [{
 "duration": 1.0,
@@ -215,7 +215,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_2_d",
-"speed": 3.2
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -229,7 +229,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_2_s",
-"speed": 4.8
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -243,7 +243,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3_d",
-"speed": 3.2
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -257,7 +257,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3_s",
-"speed": 4.8
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

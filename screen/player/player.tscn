@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clqo7dibr1orn"]
 
 [ext_resource type="Script" uid="uid://cf8u1fix8qyjr" path="res://scripts/player/player.gd" id="1_hvlx3"]
-[ext_resource type="PackedScene" uid="uid://dda853a4862b4" path="res://screen/player/body/body.tscn" id="2_sldlo"]
+[ext_resource type="PackedScene" uid="uid://dugp8d0j0jnd" path="res://screen/player/body/body.tscn" id="2_sldlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7f0j"]
 size = Vector2(42, 80)
@@ -28,3 +28,5 @@ shape = SubResource("RectangleShape2D_p7f0j")
 [node name="RightHand" type="Node2D" parent="."]
 
 [node name="Hand" type="Node2D" parent="."]
+
+[node name="Attack" type="Node2D" parent="."]

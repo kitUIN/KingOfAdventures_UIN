@@ -12,11 +12,20 @@ const ATTACK_EFFECT_PATHS = {
 	3: "res://screen/player/attack/attack_3_effect.tscn"
 }
 
-# 特效持续时间（秒）
+# 特效持续时间（秒）- 与攻击系统保持一致
 const EFFECT_DURATIONS = {
-	1: 0.3,  # 攻击1特效持续时间
-	2: 0.3,  # 攻击2特效持续时间
-	3: 0.5   # 攻击3特效持续时间
+	# 单手武器攻击特效持续时间
+	"single_handed": {
+		1: 0.292,  # 7帧 ÷ 24帧/秒
+		2: 0.417,  # 10帧 ÷ 24帧/秒
+		3: 0.5   # 10帧 ÷ 24帧/秒
+	},
+	# 双手武器攻击特效持续时间
+	"double_handed": {
+		1: 0.5,    # 12帧 ÷ 24帧/秒
+		2: 0.625,  # 15帧 ÷ 24帧/秒
+		3: 0.7   # 15帧 ÷ 24帧/秒
+	}
 }
 
 # 特效位置偏移（相对于玩家位置）
@@ -31,6 +40,21 @@ var current_effects: Dictionary = {}
 
 func _init(player: CharacterBody2D):
 	player_ref = player
+
+# 获取当前武器类型
+func get_weapon_type() -> String:
+	# 使用player的weapon_mode来判断武器类型
+	if player_ref.weapon_mode == 0:  # WeaponMode.SINGLE_HAND
+		return "single_handed"
+	else:  # WeaponMode.DUAL_HAND
+		return "double_handed"
+
+# 获取指定攻击类型的特效持续时间
+func get_effect_duration(attack_type: int) -> float:
+	var weapon_type = get_weapon_type()
+	if EFFECT_DURATIONS.has(weapon_type) and EFFECT_DURATIONS[weapon_type].has(attack_type):
+		return EFFECT_DURATIONS[weapon_type][attack_type]
+	return 0.33  # 默认持续时间
 
 # 播放攻击特效
 func play_attack_effect(attack_type: int) -> void:
@@ -83,7 +107,7 @@ func play_attack_effect(attack_type: int) -> void:
 	print("播放攻击特效 ", attack_type, " 朝向: ", "左" if is_facing_left else "右", " 位置: ", effect_instance.position)
 	
 	# 设置特效持续时间
-	var duration = EFFECT_DURATIONS.get(attack_type, 0.33)
+	var duration = get_effect_duration(attack_type)
 	var timer = player_ref.get_tree().create_timer(duration)
 	timer.timeout.connect(_on_effect_finished.bind(attack_type))
 
