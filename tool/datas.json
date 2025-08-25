@@ -1,0 +1,287 @@
+[
+    {
+        "file": "assets/player/body/2448.png",
+        "path": "screen/player/body/body"
+    },
+    {
+        "file": "assets/player/eye/2444.png",
+        "path": "screen/player/eye/eye_1"
+    },
+    {
+        "file": "assets/player/eye/2441.png",
+        "path": "screen/player/eye/eye_2"
+    },
+    {
+        "file": "assets/player/eye/2438.png",
+        "path": "screen/player/eye/eye_3"
+    }
+    ,{
+        "file": "assets/player/eye/2435.png",
+        "path": "screen/player/eye/eye_4"
+    }
+    ,{
+        "file": "assets/player/eye/2432.png",
+        "path": "screen/player/eye/eye_5"
+    }
+    ,{
+        "file": "assets/player/eye/2429.png",
+        "path": "screen/player/eye/eye_6"
+    }
+    ,{
+        "file": "assets/player/eye/2426.png",
+        "path": "screen/player/eye/eye_7"
+    }
+    ,{
+        "file": "assets/player/eye/2423.png",
+        "path": "screen/player/eye/eye_8"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2201.png",
+        "path": "screen/equipment/right_hand/rod/rod_1"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2204.png",
+        "path": "screen/equipment/right_hand/rod/rod_2"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2207.png",
+        "path": "screen/equipment/right_hand/rod/rod_3"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2210.png",
+        "path": "screen/equipment/right_hand/rod/rod_4"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2213.png",
+        "path": "screen/equipment/right_hand/rod/rod_5"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2216.png",
+        "path": "screen/equipment/right_hand/rod/rod_6"
+    }
+    ,{
+        "file": "assets/equipment/hat/2219.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_1"
+    }
+    ,{
+        "file": "assets/equipment/hat/2222.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_2"
+    }
+    ,{
+        "file": "assets/equipment/hat/2225.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_3"
+    }
+    ,{
+        "file": "assets/equipment/hat/2228.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_4"
+    }
+    ,{
+        "file": "assets/equipment/hat/2231.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_5"
+    }
+    ,{
+        "file": "assets/equipment/hat/2234.png",
+        "path": "screen/equipment/hat/wizard_hat/wizard_hat_6"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2237.png",
+        "path": "screen/equipment/double_hand/staff/staff_1"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2240.png",
+        "path": "screen/equipment/double_hand/staff/staff_2"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2243.png",
+        "path": "screen/equipment/double_hand/staff/staff_3"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2246.png",
+        "path": "screen/equipment/double_hand/staff/staff_4"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2249.png",
+        "path": "screen/equipment/double_hand/staff/staff_5"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2252.png",
+        "path": "screen/equipment/double_hand/staff/staff_6"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2255.png",
+        "path": "screen/equipment/clothing/robe/robe_1"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2258.png",
+        "path": "screen/equipment/clothing/robe/robe_2"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2261.png",
+        "path": "screen/equipment/clothing/robe/robe_3"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2264.png",
+        "path": "screen/equipment/clothing/robe/robe_4"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2267.png",
+        "path": "screen/equipment/clothing/robe/robe_5"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2270.png",
+        "path": "screen/equipment/clothing/robe/robe_6"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2273.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_1"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2276.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_2"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2279.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_3"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2282.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_4"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2285.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_5"
+    }
+    ,{
+        "file": "assets/equipment/left_hand/2288.png",
+        "path": "screen/equipment/left_hand/buckler/buckler_6"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2291.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_1"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2294.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_2"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2297.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_3"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2300.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_4"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2303.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_5"
+    }
+    ,{
+        "file": "assets/equipment/right_hand/2306.png",
+        "path": "screen/equipment/right_hand/short_sword/short_sword_6"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2309.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_1"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2312.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_2"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2315.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_3"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2318.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_4"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2321.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_5"
+    }
+    ,{
+        "file": "assets/equipment/double_hand/2324.png",
+        "path": "screen/equipment/double_hand/greatsword/greatsword_6"
+    }
+    ,{
+        "file": "assets/equipment/hat/2327.png",
+        "path": "screen/equipment/hat/helmet/helmet_1"
+    }
+    ,{
+        "file": "assets/equipment/hat/2330.png",
+        "path": "screen/equipment/hat/helmet/helmet_2"
+    }
+    ,{
+        "file": "assets/equipment/hat/2333.png",
+        "path": "screen/equipment/hat/helmet/helmet_3"
+    }
+    ,{
+        "file": "assets/equipment/hat/2336.png",
+        "path": "screen/equipment/hat/helmet/helmet_4"
+    }
+
+    ,{
+        "file": "assets/equipment/hat/2339.png",
+        "path": "screen/equipment/hat/helmet/helmet_5"
+    }
+    ,{
+        "file": "assets/equipment/hat/2342.png",
+        "path": "screen/equipment/hat/helmet/helmet_6"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2345.png",
+        "path": "screen/equipment/clothing/armor/armor_1"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2348.png",
+        "path": "screen/equipment/clothing/armor/armor_2"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2351.png",
+        "path": "screen/equipment/clothing/armor/armor_3"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2354.png",
+        "path": "screen/equipment/clothing/armor/armor_4"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2357.png",
+        "path": "screen/equipment/clothing/armor/armor_5"
+    }
+    ,{
+        "file": "assets/equipment/clothing/2360.png",
+        "path": "screen/equipment/clothing/armor/armor_6"
+    }
+    ,{
+        "file": "assets/player/hear/2375.png",
+        "path": "screen/player/hear/m_hear_1"
+    }
+    ,{
+        "file": "assets/player/hear/2378.png",
+        "path": "screen/player/hear/m_hear_2"
+    }
+    ,{
+        "file": "assets/player/hear/2381.png",
+        "path": "screen/player/hear/m_hear_3"
+    }
+    ,{
+        "file": "assets/player/hear/2384.png",
+        "path": "screen/player/hear/m_hear_4"
+    },
+    {
+        "file": "assets/player/hear/2387.png",
+        "path": "screen/player/hear/f_hear_1"
+    }
+    ,{
+        "file": "assets/player/hear/2390.png",
+        "path": "screen/player/hear/f_hear_2"
+    }
+    ,{
+        "file": "assets/player/hear/2393.png",
+        "path": "screen/player/hear/f_hear_3"
+    }
+    ,{
+        "file": "assets/player/hear/2396.png",
+        "path": "screen/player/hear/f_hear_4"
+    }
+]

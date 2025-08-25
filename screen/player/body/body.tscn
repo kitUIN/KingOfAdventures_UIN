@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d0ed54x1d31t5"]
+[gd_scene load_steps=47 format=3 uid="uid://dda853a4862b4"]
 
 [ext_resource type="Texture2D" uid="uid://bup1uoljc3b8b" path="res://assets/player/body/2448.png" id="1_s0v6t"]
 
@@ -36,7 +36,7 @@ region = Rect2(0, 2290, 260, 229)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es4lu"]
 atlas = ExtResource("1_s0v6t")
-region = Rect2(260, 2290, 260, 229)
+region = Rect2(282, 2290, 260, 229)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qyg7"]
 atlas = ExtResource("1_s0v6t")
@@ -168,7 +168,7 @@ region = Rect2(0, 229, 260, 229)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m55q"]
 atlas = ExtResource("1_s0v6t")
-region = Rect2(260, 229, 260, 229)
+region = Rect2(282, 229, 260, 229)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl4qp"]
 atlas = ExtResource("1_s0v6t")
@@ -451,4 +451,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6y00u")
-animation = &"jump_d"
+animation = &"walk_s"
+frame_progress = 0.270793

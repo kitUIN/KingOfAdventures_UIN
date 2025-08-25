@@ -75,11 +75,11 @@ func play_attack_animation(attack_type: int) -> void:
 
 # 播放移动动画
 func play_movement_animation(is_on_floor: bool, input_dir: float) -> void:
-	var animation: String = "default"
+	var animation: String = "idle"
 	if not is_on_floor:
 		animation = "jump"
 	elif input_dir != 0:
-		animation = "run"
+		animation = "walk"
 	
 	# 根据武器模式选择动画后缀
 	if current_weapon_mode == 1:  # DUAL_HAND = 1
